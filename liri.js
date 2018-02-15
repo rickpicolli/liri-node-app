@@ -15,112 +15,17 @@ var fs = require("fs");
 if (userChoice[2] === "my-tweets") {
 	myTweets()
 }
-if (userChoice[2] === "spotify-this-song") {
+else if (userChoice[2] === "spotify-this-song") {
 	mySpotify()
 }
-if (userChoice[2] === "movie-this") {
+else if (userChoice[2] === "movie-this") {
 	myMovie()
 }
 // else if (userChoice[2] === "do-what-it-says") {
 // 	myDoWhatItSays()
 // }
 else{
-	console.log("_________________________$$$$");
-
-console.log("_______________________$$$$$$");
-
-console.log("______________________$$$$$$");
-
-console.log("______________________$$$$");
-
-console.log("______________________$$");
-
-console.log("_________$$$$$$$$$$$$$_$$$$$$$$$$$$$");
-
-console.log("______$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("____$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("___$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("__$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("__$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("___$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("____$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_____$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("______$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("________$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("__________$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("____________$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("______________$$$$$$$$__$$$$$$$");
-}
-
-
-function initPag() {
-	if(userChoice[2] === undefined) {
-	console.log("_________________________$$$$");
-
-console.log("_______________________$$$$$$");
-
-console.log("______________________$$$$$$");
-
-console.log("______________________$$$$");
-
-console.log("______________________$$");
-
-console.log("_________$$$$$$$$$$$$$_$$$$$$$$$$$$$");
-
-console.log("______$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("____$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("___$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("__$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("__$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("___$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("____$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("_____$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("______$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("________$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("__________$$$$$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("____________$$$$$$$$$$$$$$$$$$$$$");
-
-console.log("______________$$$$$$$$__$$$$$$$");
-}
+	console.log("That's not a acceptable value");
 }
 
 
@@ -177,11 +82,38 @@ function mySpotify() {
 // var Spotify = require('node-spotify-api');
  
 var spotify = new Spotify(keys.spotify);
-var userResponse = "";
-
-var choice = process.argv[3];
+// var userResponse = "";
 
 
+
+var songName = process.argv[3];
+	if(!songName){
+		songName = "The Sign by Ace of Base.";
+		}
+
+
+// var userChoice = process.argv[3];
+// 	if(!userChoice){
+// 		userChoice = "The Sign by Ace of Base.";
+// 		}
+
+// 	else if(userChoice.length-3>1) {
+// 		var storage =[]
+
+// 		for (i=3; i<userChoice.length; i++) {
+// 			storage.push(userChoice[i])
+// 		}
+// 		userResponse = storage.join("");
+// 	}
+// 	else{
+// 		userResponse = userChoice[3]
+// 	}
+
+// choice = userChoice;
+
+
+
+choice = songName;
 spotify.search({ type: 'track', query: choice }, function(err, data) {
   if (err) {
     return console.log('Error occurred: ' + err);
