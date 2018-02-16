@@ -5,13 +5,13 @@
 
 * I created a node.js app called LIRI, that stands for Language Interpretation and Recognition Interface.
 * It must be ran in the Terminal/Git.
-* To make LIRI work, you need to run the commands into the command line.
+* To make LIRI work, you need to run the commands below into the command line.
 	1. my-tweets
 	2. spotify-this-song
 	3. movie-this
 	4. do-what-it-says
 
-* Type in node liri.js to get the instructions on how to enter the commands correctly.
+* Type in ```node liri.js``` to get the instructions on how to enter the commands correctly.
 
 * Example for the main page of LIRI
 
