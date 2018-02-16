@@ -8,10 +8,6 @@ var userChoice = process.argv;
 var fs = require("fs");
 
 
-
-
-// require("dotenv").config();
-
 if (userChoice[2] === "my-tweets") {
 	myTweets()
 }
@@ -21,11 +17,31 @@ else if (userChoice[2] === "spotify-this-song") {
 else if (userChoice[2] === "movie-this") {
 	myMovie()
 }
-// else if (userChoice[2] === "do-what-it-says") {
-// 	myDoWhatItSays()
-// }
+else if (userChoice[2] === "do-what-it-says") {
+	myDoWhatItSays()
+}
 else{
-	console.log("That's not a acceptable value");
+	console.log("            $$$$$$  ");
+	console.log("           $$$$(a)$$::7");
+	console.log("           $$$$$$$$:/");
+	console.log("         $$$$$$$$,");
+	console.log("       §??`?? ?`???$$,");
+	console.log("     §??`??`????$$$$$$,");
+	console.log("     §???????$$$$$$$$$$s");
+	console.log("     $?`??`???$$$$$$$$$ $$$,");
+	console.log("     §?????????$$$$$$$$$$$$s,,,,");
+	console.log("      `j§???`????`?$$$$$$$$$$$$$$s,,");
+	console.log("        ``§??? ??????$$$$$$    $$$$$$s,,");
+	console.log("           ``r§?????  $$$$________$$$$$$");
+	console.log("            //   //       $$");
+	console.log("     ______//-   //");
+	console.log("     ╋╋(((╋╋(((╋╋╋╋╋╋╋╋╋");
+	console.log("     ╋╋┏┳┓╋╋┏┓╋╋╋╋╋╋");
+	console.log("     ╋╋┃︱┣━┓┣╋━┳┳┓╋╋");
+	console.log("     ╋╋┃┳┃╋┃┃┃╋┃┏┛╋╋");
+	console.log("     ╋╋┗┻┻┻╋┛┣┻┻┛╋╋╋");
+	console.log("     ╋╋╋╋╋╋┗━┛╋╋╋╋╋╋");
+	console.log("Welcome to Liri! Try use one of these commands:" +"\n'my-tweets' 'spotify-this-song' 'movie-this' 'do-what-it-says' ");
 }
 
 
@@ -33,12 +49,6 @@ function myTweets() {
 
 	var client = new Twitter(keys.twitter);
 	var userResponse = "";
-
-
-	// var twitterUser = process.argv[3];
-	// if (!twitterUser) {
-	// 	twitterUser = "@ricpicolli";
-	// }
 
 	if (userChoice[3] === "" || userChoice[3] === undefined) {
 		console.log("If you won't say anyone, then check these tweets")
@@ -82,52 +92,28 @@ function mySpotify() {
 // var Spotify = require('node-spotify-api');
  
 var spotify = new Spotify(keys.spotify);
-// var userResponse = "";
-
-
 
 var songName = process.argv[3];
 	if(!songName){
 		songName = "The Sign by Ace of Base.";
 		}
 
+		choice = songName;
+		spotify.search({ type: 'track', query: choice, limit: 1}, function(err, data) {
+		  if (err) {
+		    return console.log('Error occurred: ' + err);
+		  }
+		  for(i = 0; i<data.tracks.items.length; i++) {
+		  	console.log("__________________________________________________\n");
+		  	 console.log(data.tracks.items[i].artists[0].name);
+		     console.log(data.tracks.items[i].name);
+		     console.log(data.tracks.items[i].external_urls.spotify);
+		     console.log(data.tracks.items[i].album.name);
+		     console.log("__________________________________________________");
+		 }
+		 
 
-// var userChoice = process.argv[3];
-// 	if(!userChoice){
-// 		userChoice = "The Sign by Ace of Base.";
-// 		}
-
-// 	else if(userChoice.length-3>1) {
-// 		var storage =[]
-
-// 		for (i=3; i<userChoice.length; i++) {
-// 			storage.push(userChoice[i])
-// 		}
-// 		userResponse = storage.join("");
-// 	}
-// 	else{
-// 		userResponse = userChoice[3]
-// 	}
-
-// choice = userChoice;
-
-
-
-choice = songName;
-spotify.search({ type: 'track', query: choice }, function(err, data) {
-  if (err) {
-    return console.log('Error occurred: ' + err);
-  }
-  for(i = 0; i<data.tracks.items.length; i++) {
-  	 console.log(data.tracks.items[i].artists[0].name);
-     console.log(data.tracks.items[i].name);
-     console.log(data.tracks.items[i].external_urls.spotify);
-     console.log(data.tracks.items[i].album.name);
-     console.log("__________________________________________________")
- }
- 
-
-});
+		});
 
 }
 
@@ -148,23 +134,15 @@ if (userChoice[3] === "" || userChoice[3] === undefined) {
 		movieName = userChoice[3]
 	}
 
+	for (var i = 3; i < nodeArgs.length; i++) {
 
-// Loop through all the words in the node argument
-// And do a little for-loop magic to handle the inclusion of "+"s
-for (var i = 3; i < nodeArgs.length; i++) {
-
-  if (i > 3 && i < nodeArgs.length) {
-
-    movieName = movieName + "+" + nodeArgs[i];
-
-  }
-
-  else {
-
-    movieName += nodeArgs[i];
-
-  }
-}
+	  if (i > 3 && i < nodeArgs.length) {
+	    movieName = movieName + "+" + nodeArgs[i];
+	  }
+	  else {
+	    movieName += nodeArgs[i];
+	  }
+	}
 
 // Run a request to the OMDB API with the movie specified
 var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
@@ -193,39 +171,32 @@ request(queryUrl, function(error, response, body) {
 
 }
 
+function myDoWhatItSays() {
+
+fs.readFile("random.txt", "utf8", function(err,data) {
+
+if (err) {
+    return console.log(err);
+  }
+
+  // We will then print the contents of data
+  console.log(data);
+
+  // Then split it by commas (to make it more readable)
+  var dataArr = data.split(",");
+  userChoice[2] = dataArr[0];
+  userChoice[3] = dataArr[1];
+
+  mySpotify();
+
+
+  // We will then re-display the content as an array for later use.
+
+})
+}
 
 
 
 
 
 
-
-
-
-
-
-
-// inquirer.prompt([
-// 	{
-// 	type: "list",
-// 	message: "choose one of this command below to start:"
-// 	choices: ["my-tweets", "spotify-this-song", "movie-this", "do-what-it-says"],
-// 	name: "choices"
-
-// 	}
-
-// ])
-
-
-// var request = require("request");
-
-// var nodeArgss = process.argv;
-
-// var movieName = "";
-
-// for (i = 2; i < nodeAr.length; i++) {
-
-// 	arr.push(process.argv[i]);
-// }
-
-// var
