@@ -38,9 +38,7 @@ else{
 	console.log("     ╋╋(((╋╋(((╋╋╋╋╋╋╋╋╋");
 	console.log("     ╋╋┏┳┓╋╋┏┓╋╋╋╋╋╋");
 	console.log("     ╋╋┃︱┣━┓┣╋━┳┳┓╋╋");
-	console.log("     ╋╋┃┳┃╋┃┃┃╋┃┏┛╋╋");
-	console.log("     ╋╋┗┻┻┻╋┛┣┻┻┛╋╋╋");
-	console.log("     ╋╋╋╋╋╋┗━┛╋╋╋╋╋╋");
+
 	console.log("Welcome to Liri! Try use one of these commands:" +"\n'my-tweets' 'spotify-this-song' 'movie-this' 'do-what-it-says' ");
 }
 
