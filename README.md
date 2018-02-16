@@ -57,10 +57,9 @@ node liri.js movie-this '<movie name here>'
 	3. IMDB Rating
 	4. Country
 	5. Language
-	6. Plot
-	7. Actors
-	8. Rotten Tomatoes Rating
-	9. Actors
+	6. Rotten Tomatoes Rating
+	7. Plot
+	8. Actors
 
 
 * Example for do what it says
